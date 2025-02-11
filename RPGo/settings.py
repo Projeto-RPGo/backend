@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Apps de terceiros
     'rest_framework',  # Django REST Framework
     'corsheaders',  # Permitir CORS
+    'drf_spectacular',
 ]
 
 SITE_ID = 1
@@ -146,3 +147,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Frontend local
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
