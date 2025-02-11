@@ -43,11 +43,16 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'core',
+
+    # Apps de terceiros
+    'rest_framework',  # Django REST Framework
+    'corsheaders',  # Permitir CORS
 ]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # CORS deve ser o primeiro middleware
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,3 +139,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True  # Para testes. Em produção, defina domínios específicos.
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Frontend local
+]
