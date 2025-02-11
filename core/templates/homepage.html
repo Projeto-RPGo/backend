@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f9ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .header a {
+            background-color: #0078d4;
+            color: white;
+            font-size: 1rem;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .header a:hover {
+            background-color: #005ea6;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="{% url 'account_login' %}">Login</a>
+        <a href="{% url 'account_signup' %}">Sign Up</a>
+    </div>
+    <div class="welcome-message">
+        <h1>Welcome to RPGgo!</h1>
+    </div>
+</body>
+</html>
