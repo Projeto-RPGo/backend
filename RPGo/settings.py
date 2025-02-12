@@ -43,11 +43,13 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'core',
-
-    # Apps de terceiros
-    'rest_framework',  # Django REST Framework
-    'corsheaders',  # Permitir CORS
+    'corsheaders',
     'drf_spectacular',
+    'health_check',
+    'health_check.db',
+    'health_check.cache',
+    'health_check.storage',
+    'rest_framework',
 ]
 
 SITE_ID = 1
@@ -90,8 +92,15 @@ WSGI_APPLICATION = 'RPGo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'OPTIONS': {
+            'sslmode': 'require'
+        },
     }
 }
 

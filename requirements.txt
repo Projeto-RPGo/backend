@@ -1,5 +1,7 @@
 Django>=5.1
 django-allauth
 django-cors-headers
+django-health-check 
 djangorestframework
 drf-spectacular
+psycopg
