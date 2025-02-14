@@ -81,5 +81,5 @@ Antes de começar, certifique-se de que você tem as seguintes ferramentas insta
 
 A documentação da API está disponível através do *Swagger* e do *ReDoc*.
 
-- **Swagger:** http://127.0.0.1:8000/api/schema/swagger-ui
-- **ReDoc:** http://127.0.0.1:8000/api/schema/redoc
+- **Swagger:** http://127.0.0.1:8000/docs/swagger-ui
+- **ReDoc:** http://127.0.0.1:8000/docs/redoc

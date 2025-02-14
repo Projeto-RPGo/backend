@@ -38,6 +38,7 @@ else
 fi
 
 echo -e "${BLUE}[INFO] Running database migrations...${NC}"
-python manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 
 echo -e "${GREEN}[SUCCESS] Configuration successful.${NC}"
