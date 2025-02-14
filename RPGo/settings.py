@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'api',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -99,7 +100,8 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'OPTIONS': {
-            'sslmode': 'require'
+            'sslmode': 'require',
+            'client_encoding': 'UTF8',
         },
     }
 }
