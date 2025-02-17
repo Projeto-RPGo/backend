@@ -12,8 +12,8 @@ class UserAdmin(admin.ModelAdmin):
     Attributes:
         list_display (tuple): A tuple of field names to display in the admin interface.
     """
-    list_display = ('id', 'username', 'first_name', 'last_name',
-                    'email', 'date_joined', 'last_login')
+    list_display = ('id', 'name', 'username', 'email',
+                    'date_joined', 'last_login')
 
 
 @admin.register(World)
@@ -24,4 +24,4 @@ class WorldAdmin(admin.ModelAdmin):
     Attributes:
         list_display (tuple): A tuple of field names to display in the admin interface.
     """
-    list_display = ('id', 'name', 'description')
+    list_display = ('id', 'name', 'creator', 'created_at')

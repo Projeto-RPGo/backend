@@ -102,6 +102,7 @@ DATABASES = {
         'OPTIONS': {
             'sslmode': 'require',
             'client_encoding': 'UTF8',
+            'options': "-c timezone=America/Recife",
         },
     }
 }

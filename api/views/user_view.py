@@ -31,7 +31,7 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer_class (Serializer): The serializer class used for serializing and deserializing User objects.
         permission_classes (list): A list of permission classes that determine access control for this viewset.
     """
-    queryset = User.objects.all().order_by('-first_name')
+    queryset = User.objects.all().order_by('-name')
     serializer_class = UserSerializer
     # permission_classes = [IsSuperuserOrOwnProfile]
 

@@ -18,7 +18,7 @@ class WorldViewSet(viewsets.ModelViewSet):
     """
     queryset = World.objects.all().order_by('-name')
     serializer_class = WorldSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def list(self, request):
         """
@@ -103,4 +103,5 @@ class WorldViewSet(viewsets.ModelViewSet):
             serializer (Serializer): The serializer instance to be saved.
         """
 
-        serializer.save(users=[self.request.user])
+        serializer.save(users=[self.request.user], creator=self.request.user, admins=[
+                        self.request.user])

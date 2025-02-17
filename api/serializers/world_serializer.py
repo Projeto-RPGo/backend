@@ -8,4 +8,4 @@ class WorldSerializer(serializers.ModelSerializer):
     class Meta:
         model = World
         fields = '__all__'
-        read_only_fields = ['users']
+        read_only_fields = ['creator', 'created_at', 'admins', 'users']
