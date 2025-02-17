@@ -1,4 +1,4 @@
-from .user_view_set import UserViewSet
+from .user_view import UserViewSet
 
 __all__ = [
     'UserViewSet',
