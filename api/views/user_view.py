@@ -107,7 +107,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
         return super().destroy(request, pk)
 
-    @action(detail=False, methods=["get"], permission_classes=[IsAuthenticated])
+    @action(detail=False, methods=["get"])
     def profile(self, request):
         """
         Retorna os dados do usuário autenticado.
