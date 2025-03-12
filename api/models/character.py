@@ -3,6 +3,10 @@ from .user import User
 from .race import Race
 from .domain import Domain
 from .affiliation import Affiliation
+from .skill import Skill
+from .mcf import MCF
+from .specialization import Specialization
+from .maxdom import MaxDom
 
 class Character(models.Model):
     """
@@ -39,6 +43,29 @@ class Character(models.Model):
     rank = models.CharField(max_length=50)
     idDom1 = models.ForeignKey(Domain, blank=True, on_delete=models.DO_NOTHING, related_name="domain_1", default=None)
     idDom2 = models.ForeignKey(Domain, blank=True, on_delete=models.DO_NOTHING, related_name="domain_2", default=None)
+    skills = models.ManyToManyField(Skill, through="SkillMastery", blank=True)
+    mcfs = models.ManyToManyField(MCF, through="MCFMastery",blank=True)
+    specializations = models.ManyToManyField(Specialization, through="SpecializationMastery", blank=True)
+    maxdoms = models.ManyToManyField(MaxDom, through="MaxDomMastery", blank=True)
 
     def __str__(self):
         return self.name + ", XP: " + self.xp
+    
+class SkillMastery(models.Model):
+    player_id = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="skills")
+    skill_id = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    slot = models.IntegerField()
+
+
+class MCFMastery(models.Model):
+    player_id = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="mcfs")
+    mcf_id = models.ForeignKey(MCF, on_delete=models.CASCADE)
+    slot = models.IntegerField()
+
+class SpecializationMastery(models.Model):
+    player_id = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="specializations")
+    specialization_id = models.ForeignKey(Specialization, on_delete=models.CASCADE)
+
+class MaxDomMastery(models.Model):
+    player_id = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="maxdoms")
+    mcf_id = models.ForeignKey(MaxDom, on_delete=models.CASCADE)
