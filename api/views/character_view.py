@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from ..models.character import Character
 from ..serializers.character_serializer import CharacterSerializer
 
+
 class CharacterViewSet(viewsets.ModelViewSet):
     """
     CharacterViewSet is a ViewSet for handling character-related operations such as listing, creating, retrieving, updating, and deleting characters.
