@@ -1,10 +1,10 @@
 from rest_framework import viewsets
 
-from ..models.race import Race
-from ..serializers.race_serializer import RaceSerializer
+from ..models.mcf import MCF
+from ..serializers.mcf_serializer import MCFSerializer
 
 
-class RaceViewSet(viewsets.ModelViewSet):
+class MCFViewSet(viewsets.ModelViewSet):
     """
     RaceViewSet is a ViewSet for handling race-related operations such as listing, creating, retrieving, updating, and deleting races.
     Attributes:
@@ -12,8 +12,8 @@ class RaceViewSet(viewsets.ModelViewSet):
         serializer_class (Serializer): The serializer class used to validate and serialize Race objects.
     """
 
-    queryset = Race.objects.all().order_by('-name')
-    serializer_class = RaceSerializer
+    queryset = MCF.objects.all().order_by('-name')
+    serializer_class = MCFSerializer
 
     def list(self, request):
         """

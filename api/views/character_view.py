@@ -1,7 +1,24 @@
-from rest_framework import viewsets
+from rest_framework import permissions, viewsets
 
 from ..models.character import Character
 from ..serializers.character_serializer import CharacterSerializer
+
+
+class IsSuperuserOrOwnProfile(permissions.BasePermission):
+    """
+    Custom permission that allows superusers to perform any action.
+    Regular users can only update or delete their own profile.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        if request.user == obj:
+            return True
+
+        return False
 
 
 class CharacterViewSet(viewsets.ModelViewSet):
@@ -14,6 +31,7 @@ class CharacterViewSet(viewsets.ModelViewSet):
 
     queryset = Character.objects.all().order_by('-name')
     serializer_class = CharacterSerializer
+    permission_classes = [IsSuperuserOrOwnProfile]
 
     def list(self, request):
         """

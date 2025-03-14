@@ -4,6 +4,6 @@ from ..models.npc import NPC
 
 
 class NPCSerializer(serializers.ModelSerializer):
-        class Meta:
-                model = NPC
-                fields = '__all__'
+    class Meta:
+        model = NPC
+        fields = '__all__'

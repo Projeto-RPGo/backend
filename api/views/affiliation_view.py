@@ -3,8 +3,9 @@ from rest_framework import viewsets
 from ..models.affiliation import Affiliation
 from ..serializers.affiliation_serializer import AffiliationSerializer
 
+
 class AffiliationViewSet(viewsets.ModelViewSet):
-    
+
     queryset = Affiliation.objects.all().order_by('-name')
     serializer_class = AffiliationSerializer
 
