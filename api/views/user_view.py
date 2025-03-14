@@ -59,7 +59,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
         return super().create(request)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP GET request to retrieve a single user.
         Args:
@@ -69,9 +69,9 @@ class UserViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing the user.
         """
 
-        return super().retrieve(request, pk)
+        return super().retrieve(request, pk, *args, **kwargs)
 
-    def update(self, request, pk=None):
+    def update(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP PUT request to update a user.
         Args:
@@ -81,9 +81,9 @@ class UserViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing the updated user.
         """
 
-        return super().update(request, pk)
+        return super().update(request, pk, *args, **kwargs)
 
-    def partial_update(self, request, pk=None):
+    def partial_update(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP PATCH request to partially update a user.
         Args:
@@ -93,9 +93,9 @@ class UserViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing the updated user.
         """
 
-        return super().partial_update(request, pk)
+        return super().partial_update(request, pk, *args, **kwargs)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP DELETE request to delete a user.
         Args:
@@ -105,7 +105,7 @@ class UserViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing a success message.
         """
 
-        return super().destroy(request, pk)
+        return super().destroy(request, pk, *args, **kwargs)
 
     @action(detail=False, methods=["get"])
     def profile(self, request):
