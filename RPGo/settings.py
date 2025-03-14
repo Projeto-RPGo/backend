@@ -166,7 +166,8 @@ CORS_ALLOWED_ORIGINS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
-    "https://rpgo-backend.onrender.com"
+    "https://rpgo-backend.onrender.com",
+    "http://localhost:3000"
 ]
 
 # Django Rest Framework (DRF)
