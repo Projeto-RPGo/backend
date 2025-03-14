@@ -1,4 +1,6 @@
 from rest_framework import permissions, viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 from ..models.character import Character
 from ..serializers.character_serializer import CharacterSerializer
@@ -102,3 +104,13 @@ class CharacterViewSet(viewsets.ModelViewSet):
         """
 
         return super().destroy(request, pk)
+
+    @action(detail=False, methods=['GET'], url_path='user/(?P<user_id>[^/.]+)')
+    def user_characters(self, request, user_id=None):
+        """
+        Custom endpoint to retrieve characters belonging to a specific user.
+        """
+        characters = Character.objects.filter(
+            user_id=user_id).order_by('-name')
+        serializer = self.get_serializer(characters, many=True)
+        return Response(serializer.data)
