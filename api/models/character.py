@@ -1,12 +1,13 @@
 from django.db import models
-from .user import User
-from .race import Race
-from .domain import Domain
+
 from .affiliation import Affiliation
 from .skill import Skill
 from .mcf import MCF
 from .specialization import Specialization
 from .maxdom import MaxDom
+from .domain import Domain
+from .race import Race
+from .user import User
 
 class Character(models.Model):
     """
@@ -28,11 +29,12 @@ class Character(models.Model):
         idDom1 (int): The first domain of the character.
         idDom2 (int): The second domain of the character.
     """
-    player_id = models.ForeignKey(User, on_delete=models.CASCADE)
     character_id = models.BigAutoField(primary_key=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     age = models.IntegerField()
-    appearance = models.URLField()
+    avatar = models.TextField(null=True, blank=True)
+    appearance = models.CharField(max_length=100)
     race = models.ForeignKey(Race, on_delete=models.DO_NOTHING, null=False)
     affiliation = models.ForeignKey(Affiliation, on_delete=models.DO_NOTHING, blank=True, default=None)
     xp = models.IntegerField(default=0)
@@ -41,8 +43,8 @@ class Character(models.Model):
     background = models.TextField()
     status = models.CharField(max_length=50)
     rank = models.CharField(max_length=50)
-    idDom1 = models.ForeignKey(Domain, blank=True, on_delete=models.DO_NOTHING, related_name="domain_1", default=None)
-    idDom2 = models.ForeignKey(Domain, blank=True, on_delete=models.DO_NOTHING, related_name="domain_2", default=None)
+    domain1_id = models.ForeignKey(Domain, blank=True, on_delete=models.DO_NOTHING, related_name="domain_1", default=None)
+    domain2_id = models.ForeignKey(Domain, blank=True, on_delete=models.DO_NOTHING, related_name="domain_2", default=None)
     skills = models.ManyToManyField(Skill, through="SkillMastery", blank=True)
     mcfs = models.ManyToManyField(MCF, through="MCFMastery",blank=True)
     specializations = models.ManyToManyField(Specialization, through="SpecializationMastery", blank=True)
@@ -55,7 +57,6 @@ class SkillMastery(models.Model):
     player_id = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="skills")
     skill_id = models.ForeignKey(Skill, on_delete=models.CASCADE)
     slot = models.IntegerField()
-
 
 class MCFMastery(models.Model):
     player_id = models.ForeignKey(Character, on_delete=models.CASCADE, related_name="mcfs")

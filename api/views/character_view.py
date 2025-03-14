@@ -3,6 +3,7 @@ from rest_framework import viewsets, permissions
 from ..models.character import Character
 from ..serializers.character_serializer import CharacterSerializer
 
+
 class IsSuperuserOrOwnProfile(permissions.BasePermission):
     """
     Custom permission that allows superusers to perform any action.
@@ -18,7 +19,6 @@ class IsSuperuserOrOwnProfile(permissions.BasePermission):
             return True
 
         return False
-
 
 class CharacterViewSet(viewsets.ModelViewSet):
     """

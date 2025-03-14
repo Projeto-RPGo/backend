@@ -1,5 +1,7 @@
 from rest_framework import permissions, viewsets
+from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from ..models import User
 from ..models.user import User
@@ -104,3 +106,11 @@ class UserViewSet(viewsets.ModelViewSet):
         """
 
         return super().destroy(request, pk)
+
+    @action(detail=False, methods=["get"])
+    def profile(self, request):
+        """
+        Retorna os dados do usuário autenticado.
+        """
+        serializer = self.get_serializer(request.user)
+        return Response(serializer.data)
