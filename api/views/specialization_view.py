@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from ..models.specialization import Specialization
 from ..serializers.specialization_serializer import SpecializationSerializer
 
+
 class SpecializationViewSet(viewsets.ModelViewSet):
     """
     RaceViewSet is a ViewSet for handling race-related operations such as listing, creating, retrieving, updating, and deleting races.

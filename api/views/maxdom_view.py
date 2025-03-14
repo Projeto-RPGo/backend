@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from ..models.maxdom import MaxDom
 from ..serializers.maxdom_serializer import MaxDomSerializer
 
+
 class MaxDomViewSet(viewsets.ModelViewSet):
     """
     RaceViewSet is a ViewSet for handling race-related operations such as listing, creating, retrieving, updating, and deleting races.

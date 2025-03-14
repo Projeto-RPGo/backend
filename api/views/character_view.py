@@ -1,4 +1,4 @@
-from rest_framework import viewsets, permissions
+from rest_framework import permissions, viewsets
 
 from ..models.character import Character
 from ..serializers.character_serializer import CharacterSerializer
@@ -20,6 +20,7 @@ class IsSuperuserOrOwnProfile(permissions.BasePermission):
 
         return False
 
+
 class CharacterViewSet(viewsets.ModelViewSet):
     """
     CharacterViewSet is a ViewSet for handling character-related operations such as listing, creating, retrieving, updating, and deleting characters.
@@ -31,7 +32,6 @@ class CharacterViewSet(viewsets.ModelViewSet):
     queryset = Character.objects.all().order_by('-name')
     serializer_class = CharacterSerializer
     permission_classes = [IsSuperuserOrOwnProfile]
-
 
     def list(self, request):
         """

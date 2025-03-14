@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from ..models.mcf import MCF
 from ..serializers.mcf_serializer import MCFSerializer
 
+
 class MCFViewSet(viewsets.ModelViewSet):
     """
     RaceViewSet is a ViewSet for handling race-related operations such as listing, creating, retrieving, updating, and deleting races.

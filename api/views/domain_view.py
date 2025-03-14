@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from ..models.domain import Domain
 from ..serializers.domain_serializer import DomainSerializer
 
+
 class DomainViewSet(viewsets.ModelViewSet):
 
     queryset = Domain.objects.all().order_by('-name')

@@ -1,5 +1,7 @@
 from django.db import models
+
 from .skill import Skill
+
 
 class MCF(models.Model):
     mcf_id = models.AutoField(primary_key=True)
