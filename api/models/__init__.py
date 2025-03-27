@@ -7,4 +7,10 @@ __all__ = [
     'Domain',
     'NPC',
     'Affiliation',
+    'Skill',
+    'Specialization',
+    'MCF',
+    'MaxDom',
+    'Domain',
+    'Quest',
 ]

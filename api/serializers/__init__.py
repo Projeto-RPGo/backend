@@ -4,6 +4,7 @@ from .race_serializer import RaceSerializer
 from .npc_serializer import NPCSerializer
 from .domain_serializer import DomainSerializer
 from .affiliation_serializer import AffiliationSerializer
+from .quest_serializer import QuestSerializer
 
 __all__ = [
     'UserSerializer',
@@ -12,4 +13,5 @@ __all__ = [
     'RaceSerializer',
     'NPCSerializer',
     'AffiliationSerializer',
+    'QuestSerializer',
 ]

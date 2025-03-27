@@ -8,6 +8,7 @@ from .skill_view import SkillViewSet
 from .mcf_view import MCFViewSet
 from .specialization_view import SpecializationViewSet
 from .maxdom_view import MaxDomViewSet
+from .quest_view import QuestViewSet
 
 __all__ = [
     'UserViewSet',
@@ -20,4 +21,5 @@ __all__ = [
     'MCFViewSet',
     'SpecializationViewSet',
     'MaxDomViewSet',
+    'QuestViewSet',
 ]
