@@ -22,4 +22,5 @@ __all__ = [
     'SpecializationViewSet',
     'MaxDomViewSet',
     'QuestViewSet',
+    'get_domain_details'
 ]

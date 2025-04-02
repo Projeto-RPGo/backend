@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('auth/login/', LoginView.as_view(), name='login'),
     path('auth/logout/', LogoutView.as_view(), name='logout'),
+    path("api/domains/<int:domain_id>/", DomainViewSet.get_domain_details, name="get_domain_details"),
 ]
