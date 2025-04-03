@@ -19,11 +19,11 @@ class Quest(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return self.type + ": " + self.quest_id
+        return self.type + ": " + str(self.quest_id)
 
 
 class QuestMember(models.Model):
-    character_id = models.ForeignKey(Character, on_delete=models.DO_NOTHING)
-    quest_id = models.ForeignKey(Quest, on_delete=models.CASCADE)
+    character = models.ForeignKey(Character, on_delete=models.DO_NOTHING)
+    quest = models.ForeignKey(Quest, on_delete=models.CASCADE)
     xp = models.IntegerField()
     euros = models.IntegerField()
