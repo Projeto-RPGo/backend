@@ -4,6 +4,7 @@ from .domain_serializer import DomainSerializer
 from .maxdom_serializer import MaxDomSerializer
 from .mcf_serializer import MCFSerializer
 from .npc_serializer import NPCSerializer
+from .quest_serializer import QuestSerializer
 from .race_serializer import RaceSerializer
 from .skill_serializer import SkillSerializer
 from .specialization_serializer import SpecializationSerializer
@@ -17,6 +18,7 @@ __all__ = [
     'MaxDomSerializer',
     'MCFSerializer',
     'NPCSerializer',
+    'QuestSerializer',
     'RaceSerializer',
     'SkillSerializer',
     'SpecializationSerializer',

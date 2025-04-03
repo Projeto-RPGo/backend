@@ -4,6 +4,7 @@ from .domain import Domain
 from .maxdom import MaxDom
 from .mcf import MCF
 from .npc import NPC
+from .quest import Quest
 from .race import Race
 from .skill import Skill
 from .specialization import Specialization
@@ -17,6 +18,7 @@ __all__ = [
     'MaxDom',
     'MCF',
     'NPC',
+    'Quest',
     'Race',
     'Skill',
     'Specialization',
