@@ -161,6 +161,13 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://rpgo-frontend.onrender.com"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "https://rpgo-backend.onrender.com",
+    "http://localhost:3000"
 ]
 
 # Django Rest Framework (DRF)

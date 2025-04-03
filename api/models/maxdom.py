@@ -1,5 +1,7 @@
 from django.db import models
+
 from .skill import Skill
+
 
 class MaxDom(models.Model):
     max_dom_id = models.AutoField(primary_key=True)

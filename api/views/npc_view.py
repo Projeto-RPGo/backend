@@ -3,8 +3,9 @@ from rest_framework import viewsets
 from ..models.npc import NPC
 from ..serializers.npc_serializer import NPCSerializer
 
+
 class NPCViewSet(viewsets.ModelViewSet):
-    
+
     queryset = NPC.objects.all().order_by('-name')
     serializer_class = NPCSerializer
 
@@ -30,7 +31,7 @@ class NPCViewSet(viewsets.ModelViewSet):
 
         return super().create(request)
 
-    def retrieve(self, request, pk=None):
+    def retrieve(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP GET request to retrieve a single NPC.
         Args:
@@ -40,9 +41,9 @@ class NPCViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing the NPC.
         """
 
-        return super().retrieve(request, pk)
+        return super().retrieve(request, pk, *args, **kwargs)
 
-    def update(self, request, pk=None):
+    def update(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP PUT request to update a NPC.
         Args:
@@ -52,9 +53,9 @@ class NPCViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing the updated NPC.
         """
 
-        return super().update(request, pk)
+        return super().update(request, pk, *args, **kwargs)
 
-    def partial_update(self, request, pk=None):
+    def partial_update(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP PATCH request to partially update a NPC.
         Args:
@@ -64,9 +65,9 @@ class NPCViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing the updated NPC.
         """
 
-        return super().partial_update(request, pk)
+        return super().partial_update(request, pk, *args, **kwargs)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request, pk=None, *args, **kwargs):
         """
         Handles the HTTP DELETE request to delete a NPC.
         Args:
@@ -76,4 +77,4 @@ class NPCViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing a success message.
         """
 
-        return super().destroy(request, pk)
+        return super().destroy(request, pk, *args, **kwargs)

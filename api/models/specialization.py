@@ -1,5 +1,7 @@
 from django.db import models
+
 from .skill import Skill
+
 
 class Specialization(models.Model):
     specialization_id = models.AutoField(primary_key=True)
