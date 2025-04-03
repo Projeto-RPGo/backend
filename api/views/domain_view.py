@@ -1,12 +1,14 @@
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from ..models.skill import Skill
-from ..models.mcf import MCF 
-from ..models.specialization import Specialization
-from ..models.maxdom import MaxDom
+
 from ..models.domain import Domain
+from ..models.maxdom import MaxDom
+from ..models.mcf import MCF
+from ..models.skill import Skill
+from ..models.specialization import Specialization
 from ..serializers.domain_serializer import DomainSerializer
+
 
 class DomainViewSet(viewsets.ModelViewSet):
 
@@ -82,15 +84,16 @@ class DomainViewSet(viewsets.ModelViewSet):
         """
 
         return super().destroy(request, pk)
-    
+
     @api_view(["GET"])
     def get_domain_details(request, domain_id):
         try:
             domain = Domain.objects.get(pk=domain_id)
         except Domain.DoesNotExist:
             return Response({"error": "Domínio não encontrado."}, status=404)
-        
-        skills = Skill.objects.filter(domain1=domain) | Skill.objects.filter(domain2=domain)
+
+        skills = Skill.objects.filter(
+            domain1=domain) | Skill.objects.filter(domain2=domain)
         habilidades = [
             {
                 "id": skill.skill_id,
@@ -99,7 +102,7 @@ class DomainViewSet(viewsets.ModelViewSet):
             }
             for skill in skills
         ]
-        
+
         mcfs = MCF.objects.filter(skill_id__in=skills)
         mcf = [
             {
@@ -110,7 +113,7 @@ class DomainViewSet(viewsets.ModelViewSet):
             }
             for mcf in mcfs
         ]
-        
+
         especializacoes = Specialization.objects.filter(skill_id__in=skills)
         especializacoes_list = [
             {
@@ -121,7 +124,7 @@ class DomainViewSet(viewsets.ModelViewSet):
             }
             for esp in especializacoes
         ]
-        
+
         maxdoms = MaxDom.objects.filter(skill_id__in=skills)
         dominio_max = (
             {
@@ -132,12 +135,12 @@ class DomainViewSet(viewsets.ModelViewSet):
             }
             if maxdoms.exists() else None
         )
-        
+
         response_data = {
             "habilidades": habilidades,
             "mcf": mcf,
             "especializacoes": especializacoes_list,
             "dominioMax": dominio_max,
         }
-        
+
         return Response(response_data)

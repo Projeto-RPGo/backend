@@ -1,11 +1,13 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from api.views import UserViewSet, CharacterViewSet, RaceViewSet, NPCViewSet, AffiliationViewSet, DomainViewSet, SkillViewSet, MCFViewSet, SpecializationViewSet, MaxDomViewSet, QuestViewSet
+from api.views import (AffiliationViewSet, CharacterViewSet, DomainViewSet,
+                       MaxDomViewSet, MCFViewSet, NPCViewSet, QuestViewSet,
+                       RaceViewSet, SkillViewSet, SpecializationViewSet,
+                       UserViewSet)
 
 from .views.auth_view import LoginView, LogoutView
 from .views.world_view import WorldViewSet
-
 
 router = DefaultRouter()
 
@@ -26,5 +28,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('auth/login/', LoginView.as_view(), name='login'),
     path('auth/logout/', LogoutView.as_view(), name='logout'),
-    path("api/domains/<int:domain_id>/", DomainViewSet.get_domain_details, name="get_domain_details"),
+    path('domain/<int:domain_id>/details', DomainViewSet.get_domain_details, name="get_domain_details"),
 ]
