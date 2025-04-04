@@ -126,9 +126,6 @@ class QuestViewSet(viewsets.ModelViewSet):
         """
         characters = Character.objects.filter(user_id=user_id)
 
-        if not characters.exists():
-            return Response({'detail': 'No characters found for this user.'}, status=status.HTTP_404_NOT_FOUND)
-
         result = []
         for character in characters:
             quests = Quest.objects.filter(participants=character)
@@ -141,3 +138,23 @@ class QuestViewSet(viewsets.ModelViewSet):
             })
 
         return Response(result, status=status.HTTP_200_OK)
+
+    @action(detail=False, methods=['get'], url_path='giver/(?P<giver_id>[^/.]+)')
+    def quests_by_giver(self, _, giver_id):
+        """
+        Retorna todas as quests associadas a um determinado giver (usuário).
+        """
+        quests = Quest.objects.filter(giver_id=giver_id)
+
+        serializer = self.get_serializer(quests, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=False, methods=['get'], url_path='status/(?P<status_value>[^/.]+)')
+    def quests_by_status(self, _, status_value):
+        """
+        Retorna todas as quests com um determinado status.
+        """
+        quests = Quest.objects.filter(status=status_value)
+
+        serializer = self.get_serializer(quests, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

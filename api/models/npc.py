@@ -7,6 +7,8 @@ class NPC(models.Model):
     description = models.TextField()
     title = models.CharField(max_length=50)
     association = models.CharField(max_length=50)
+    avatar = models.TextField(null=True, blank=True)
+    appearance = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.name
