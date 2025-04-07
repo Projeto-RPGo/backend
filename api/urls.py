@@ -29,4 +29,5 @@ urlpatterns = [
     path('auth/login/', LoginView.as_view(), name='login'),
     path('auth/logout/', LogoutView.as_view(), name='logout'),
     path('domain/<int:domain_id>/details', DomainViewSet.get_domain_details, name="get_domain_details"),
+    path("api/domain/<int:domain_id>/character/<int:character_id>/", DomainViewSet.get_character_domain_data, name="get_character_domain_data"),
 ]

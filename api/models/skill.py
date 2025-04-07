@@ -9,7 +9,7 @@ class Skill(models.Model):
     domain1 = models.ForeignKey(
         Domain, blank=False, on_delete=models.DO_NOTHING, related_name="skill_domain1")
     domain2 = models.ForeignKey(
-        Domain, blank=True, on_delete=models.DO_NOTHING, related_name="skill_domain2")
+        Domain, blank=True, null=True, on_delete=models.DO_NOTHING, related_name="skill_domain2")
     slot1 = models.TextField(blank=True)
     slot2 = models.TextField(blank=True)
     slot3 = models.TextField(blank=True)

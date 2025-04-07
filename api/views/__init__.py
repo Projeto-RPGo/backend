@@ -23,4 +23,5 @@ __all__ = [
     'SpecializationViewSet',
     'MaxDomViewSet',
     'get_domain_details',
+    'get_character_domain_data',
 ]
