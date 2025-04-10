@@ -2,13 +2,13 @@ from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from ..models import Character
+from ..models.character import MaxDomMastery, MCFMastery, SkillMastery, SpecializationMastery
 from ..models.domain import Domain
 from ..models.maxdom import MaxDom
 from ..models.mcf import MCF
 from ..models.skill import Skill
 from ..models.specialization import Specialization
-from ..models import Character
-from ..models.character import SkillMastery, MCFMastery, SpecializationMastery, MaxDomMastery
 from ..serializers.domain_serializer import DomainSerializer
 
 
@@ -85,7 +85,7 @@ class DomainViewSet(viewsets.ModelViewSet):
             Response: The HTTP response object containing a success message.
         """
 
-        return super().destroy(request, pk)
+        return super().destroy(request, pk, *args, **kwargs)
 
     @api_view(["GET"])
     def get_domain_details(request, domain_id):
