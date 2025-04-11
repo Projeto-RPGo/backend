@@ -1,6 +1,7 @@
 from .affiliation_serializer import AffiliationSerializer
 from .character_serializer import CharacterSerializer
 from .domain_serializer import DomainSerializer
+from .item_serializer import ItemSerializer
 from .maxdom_serializer import MaxDomSerializer
 from .mcf_serializer import MCFSerializer
 from .npc_serializer import NPCSerializer
@@ -15,6 +16,7 @@ __all__ = [
     'AffiliationSerializer',
     'CharacterSerializer',
     'DomainSerializer',
+    'ItemSerializer',
     'MaxDomSerializer',
     'MCFSerializer',
     'NPCSerializer',

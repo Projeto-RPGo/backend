@@ -1,6 +1,7 @@
 from .affiliation import Affiliation
 from .character import Character
 from .domain import Domain
+from .item import Item
 from .maxdom import MaxDom
 from .mcf import MCF
 from .npc import NPC
@@ -15,6 +16,7 @@ __all__ = [
     'Affiliation',
     'Character',
     'Domain',
+    'Item',
     'MaxDom',
     'MCF',
     'NPC',
