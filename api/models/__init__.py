@@ -7,6 +7,7 @@ from .mcf import MCF
 from .npc import NPC
 from .quest import Quest
 from .race import Race
+from .sale import Sale
 from .skill import Skill
 from .specialization import Specialization
 from .user import User
@@ -22,6 +23,7 @@ __all__ = [
     'NPC',
     'Quest',
     'Race',
+    'Sale',
     'Skill',
     'Specialization',
     'User',

@@ -7,6 +7,7 @@ from .mcf_serializer import MCFSerializer
 from .npc_serializer import NPCSerializer
 from .quest_serializer import QuestSerializer
 from .race_serializer import RaceSerializer
+from .sale_serializer import PurchaseSerializer, SaleSerializer
 from .skill_serializer import SkillSerializer
 from .specialization_serializer import SpecializationSerializer
 from .user_serializer import UserSerializer
@@ -20,8 +21,10 @@ __all__ = [
     'MaxDomSerializer',
     'MCFSerializer',
     'NPCSerializer',
+    'PurchaseSerializer',
     'QuestSerializer',
     'RaceSerializer',
+    'SaleSerializer',
     'SkillSerializer',
     'SpecializationSerializer',
     'UserSerializer',

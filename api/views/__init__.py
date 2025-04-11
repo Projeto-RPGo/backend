@@ -7,6 +7,7 @@ from .mcf_view import MCFViewSet
 from .npc_view import NPCViewSet
 from .quest_view import QuestViewSet
 from .race_view import RaceViewSet
+from .sale_view import SaleViewSet
 from .skill_view import SkillViewSet
 from .specialization_view import SpecializationViewSet
 from .user_view import UserViewSet
@@ -22,6 +23,7 @@ __all__ = [
     'NPCViewSet',
     'QuestViewSet',
     'RaceViewSet',
+    'SaleViewSet',
     'SkillViewSet',
     'SpecializationViewSet',
     'UserViewSet',
